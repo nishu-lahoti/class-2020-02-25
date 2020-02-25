@@ -26,7 +26,14 @@ roll_two_die <- function(rolls) {
   roll_one_die(rolls) + roll_one_die(rolls)
 }
 
-roll_two_die(100)
+# First method using geom_col()
+output <- tibble(result = roll_two_die(1000000)) %>%
+  count(result)
+ggplot(output, aes(x=result, y=n)) + geom_col() + scale_x_discrete()
+
+# Second method using geom_histogram()
+hist_output <- tibble(result = roll_two_die(1000000))
+ggplot(hist_output, aes(result)) + geom_histogram()
 
 ```
 
