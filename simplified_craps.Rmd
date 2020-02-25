@@ -1,0 +1,28 @@
+---
+title: "simplified_craps"
+author: "Nishu Lahoti"
+date: "2/25/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+
+roll_one_die <- function(rolls) {
+  die <- c(1:6)
+  sample(die, rolls, replace = TRUE)
+}
+
+roll_one_die(10)
+
+roll_two_die <- function(rolls) {
+  roll_one_die(rolls) + roll_one_die(rolls)
+}
+
+roll_two_die(100)
+
+```
+
